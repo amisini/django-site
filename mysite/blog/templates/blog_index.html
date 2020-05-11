@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block page_content %}
+    <h1>Blog Index</h1>
+    <hr>
+    {% for post in posts %}
+    <h2><a href="{% url 'post_detail' post.pk%}">{{ post.title }}</a></h2>
+    <small>
+        {{ post.created_on.date }}
+    </small>
+    <p>{{ post.content | slice:":400" }}...</p>
+    {% endfor %}
+{% endblock %}
